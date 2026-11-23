@@ -121,12 +121,11 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);color:var(--green);font-weight:800;letter
 /* Why */
 .why{background:var(--green);color:var(--cream)}
 .why h2{color:var(--cream)}
-.why .eyebrow{color:var(--gold)}
-.why-grid{display:grid;gap:2rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
-.why-grid h3{color:var(--gold);font-size:1rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem}
-.why-grid p,.why-grid li{color:rgba(245,242,231,.85);font-size:.97rem}
-.why-grid li+li{margin-top:.5rem}
-
+.why-list{margin-top:2.5rem;max-width:44rem;border-top:1px solid rgba(245,242,231,.2)}
+.why-list li{display:flex;gap:1rem;align-items:baseline;padding-block:1.15rem;border-bottom:1px solid rgba(245,242,231,.2);font-size:clamp(1.05rem,2vw,1.25rem);font-weight:600}
+.why-list li::before{content:"";flex:none;inline-size:.65rem;block-size:.65rem;border-radius:50%;background:var(--gold);translate:0 -.1em}
+.why-cta{margin-top:2.5rem;max-width:44rem;font-size:clamp(1.1rem,2vw,1.3rem);color:rgba(245,242,231,.9)}
+.why .btn{margin-top:1.5rem}
 /* Process */
 .steps{counter-reset:step;display:grid;gap:1.25rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
 .step{counter-increment:step;position:relative;padding:1.5rem;border-radius:var(--radius);background:var(--cream)}
@@ -268,14 +267,14 @@ We want to create an experience to newcomers in Zambia. Investors get one accoun
 
   <section class="why" id="why">
     <div class="wrap">
-      <p class="eyebrow">Why choose us</p>
-      <h2>18+ years of customer experience leadership</h2>
-      <div class="why-grid">
-        <div class="reveal"><h3>Experience</h3><p>Led by Theresa Mumba, a customer experience and management professional and founder of Zonite Consulting.</p></div>
-        <div class="reveal"><h3>Industry background</h3><ul><li>MTN Zambia</li><li>FNB Zambia</li><li>M-Kopa East Africa</li></ul></div>
-        <div class="reveal"><h3>Qualifications</h3><ul><li>MBA in Management Strategy, University of Zambia</li><li>Forrester Certified Mastering Customer Experience</li><li>Postgraduate Diploma in Educational Leadership and Teaching Methodology, Copperbelt University</li></ul></div>
-        <div class="reveal"><h3>Standing</h3><p>Member of the Zambia Institute of Marketing (ZIM).</p></div>
-      </div>
+      <h2>Why choose us</h2>
+      <ul class="why-list">
+        <li>One named advisor for every client</li>
+        <li>Clear packages and transparent costs, with receipts for fees paid on your behalf</li>
+        <li>Honest advice, and prompt responses throughout your stay</li>
+      </ul>
+      <p class="why-cta">Let&rsquo;s get you started. Tell us what brings you to Zambia, and we&rsquo;ll take it from there.</p>
+      <a class="btn btn-gold" href="#contact">Start an enquiry</a>
     </div>
   </section>
 
