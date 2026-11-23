@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iTwende Concierge | Concierge services for investors and visitors in Zambia</title>
+<meta name="description" content="iTwende Concierge is a Lusaka-based concierge and advisory service helping investors and first-time visitors arrive, settle and succeed anywhere in Zambia.">
+<meta name="theme-color" content="#11302a">
+
+<!-- FAVICON PLACEHOLDER: replace with the path to your favicon image -->
+<link rel="icon" href="images/favicon.jpeg" type="image/jpeg">
+
+<style>
+:root{
+  --green:#11302a; --green-2:#1b4a40; --gold:#d8a645; --brown:#9a5313;
+  --cream:#f5f2e7; --paper:#fffdf7; --ink:#1c2b27; --muted:#55645f;
+  --radius:1rem; --max:72rem;
+  --font:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:1.25rem}
+section{padding-block:clamp(3.5rem,8vw,6rem)}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brown);margin-bottom:.75rem}
+h2{font-size:clamp(1.75rem,4vw,2.6rem);color:var(--green);font-weight:800;letter-spacing:-.01em}
+.lead{color:var(--muted);font-size:1.1rem;max-width:42rem;margin-top:1rem}
+
+.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--green)}
+.btn-gold:hover{background:#e6b85a}
+.btn-ghost{border-color:rgba(245,242,231,.5);color:var(--cream)}
+.btn-ghost:hover{background:rgba(245,242,231,.1)}
+
+/* Header / navbar */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,253,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e8e3d2}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:var(--max);margin-inline:auto;padding:.6rem 1.25rem}
+.header-inner>*{flex-shrink:0;white-space:nowrap}
+.site-logo img{height:2.75rem;width:auto}
+.menu-button{anchor-name:--menu-button;display:inline-flex;align-items:center;gap:.5rem;font:inherit;font-weight:700;color:var(--green);background:none;border:2px solid var(--green);border-radius:999px;padding:.45rem 1rem;cursor:pointer}
+/* Collapsed: full-width panel that slides down from under the header */
+.site-menu{position:fixed;inset:auto;inset-inline:0;inset-block-start:4.25rem; /* fallback */
+  inset-block-start:calc(anchor(--menu-button bottom) + .65rem);
+  inline-size:100%;max-inline-size:none;block-size:fit-content;max-block-size:calc(100dvh - 5rem);margin:0;overflow:auto;
+  padding:.5rem 1.25rem 1.25rem;border:0;border-bottom:4px solid var(--gold);border-radius:0 0 1.5rem 1.5rem;
+  background:var(--green);box-shadow:0 24px 40px rgba(12,35,30,.35);
+  opacity:0;transform:translateY(-1.25rem);
+  transition:opacity .28s ease,transform .28s ease,overlay .28s allow-discrete,display .28s allow-discrete}
+.site-menu:popover-open{opacity:1;transform:none}
+@starting-style{.site-menu:popover-open{opacity:0;transform:translateY(-1.25rem)}}
+.site-menu::backdrop{background:rgba(12,35,30,.45)}
+.site-menu li+li{border-top:1px solid rgba(245,242,231,.15)}
+.site-menu a{display:block;padding:1rem .5rem;text-decoration:none;font-weight:700;font-size:1.1rem;color:var(--cream)}
+.site-menu a:hover{color:var(--gold)}
+.site-menu a[aria-current="true"]{color:var(--gold)}
+.site-header.is-wide .menu-button{display:none}
+.site-header.is-wide .site-menu{position:static;display:flex;align-items:center;gap:.25rem;inline-size:auto;max-inline-size:none;max-block-size:none;overflow:visible;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;opacity:1;transform:none;transition:none}
+.site-header.is-wide .site-menu li+li{border-top:0}
+.site-header.is-wide .site-menu a{color:var(--green);font-size:1rem;font-weight:600}
+.site-header.is-wide .site-menu a:hover{color:var(--brown)}
+.site-header.is-wide .site-menu a[aria-current="true"]{color:var(--paper);background:var(--green)}
+.site-header.is-wide .site-menu::backdrop{display:none}
+.site-header.is-wide .site-menu a{padding:.5rem .8rem}
+.site-header.is-wide .site-menu a.nav-cta{background:var(--gold);color:var(--green)}
+.is-measuring *{transition:none!important}
+
+/* Hero */
+.hero{background:radial-gradient(circle at 85% 20%,rgba(216,166,69,.22),transparent 45%),var(--green);color:var(--cream);padding-block:clamp(4rem,11vw,8rem)}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(2.2rem,6.5vw,4.2rem);font-weight:800;letter-spacing:-.02em;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{color:rgba(245,242,231,.85);font-size:clamp(1.05rem,2vw,1.25rem)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem;margin-top:3.5rem;border-top:1px solid rgba(245,242,231,.2);padding-top:2rem}
+.stats strong{display:block;font-size:1.6rem;color:var(--gold)}
+.stats span{font-size:.9rem;color:rgba(245,242,231,.75)}
+
+/* About */
+.about{background:var(--cream)}
+.about-grid{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));align-items:center}
+.pillars{display:grid;gap:1rem}
+.pillar{background:var(--paper);border-left:4px solid var(--gold);border-radius:.6rem;padding:1rem 1.25rem}
+.pillar h3{font-size:1.05rem;color:var(--green)}
+.pillar p{color:var(--muted);font-size:.95rem}
+
+/* Offer */
+.tracks{display:grid;gap:1.5rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr))}
+.track{border-radius:var(--radius);padding:1.75rem;border:1px solid #e0dac4;background:var(--paper)}
+.track.dark{background:var(--green);color:var(--cream);border-color:var(--green)}
+.track h3{font-size:1.4rem;margin-bottom:.25rem}
+.track .sub{font-size:.9rem;opacity:.75;margin-bottom:1.25rem}
+.pkg{padding-block:1rem;border-top:1px solid rgba(128,128,128,.25)}
+.pkg h4{margin:0 0 .25rem;font-size:1.05rem;color:var(--brown)}
+.dark .pkg h4{color:var(--gold)}
+.pkg p{font-size:.95rem;opacity:.9}
+.addons{margin-top:1.5rem;padding:1.25rem 1.5rem;border-radius:var(--radius);background:var(--cream);color:var(--muted)}
+.addons strong{color:var(--green)}
+
+/* Why */
+.why{background:var(--green);color:var(--cream)}
+.why h2{color:var(--cream)}
+.why .eyebrow{color:var(--gold)}
+.why-grid{display:grid;gap:2rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.why-grid h3{color:var(--gold);font-size:1rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem}
+.why-grid p,.why-grid li{color:rgba(245,242,231,.85);font-size:.97rem}
+.why-grid li+li{margin-top:.5rem}
+
+/* Process */
+.steps{counter-reset:step;display:grid;gap:1.25rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+.step{counter-increment:step;position:relative;padding:1.5rem;border-radius:var(--radius);background:var(--cream)}
+.step::before{content:counter(step);display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--green);color:var(--gold);font-weight:800;margin-bottom:.9rem}
+.step h3{font-size:1.1rem;color:var(--green);margin-bottom:.3rem}
+.step p{color:var(--muted);font-size:.95rem}
+.promise{margin-top:2rem;padding:1.25rem 1.5rem;border-left:4px solid var(--brown);background:var(--paper);font-weight:600;color:var(--green)}
+.promise small{display:block;margin-top:.35rem;font-weight:400;color:var(--muted)}
+
+/* Who / where */
+.who{background:var(--cream)}
+.cards{display:grid;gap:1.5rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+.card{background:var(--paper);border-radius:var(--radius);padding:1.5rem;border:1px solid #e0dac4}
+.card h3{color:var(--green);margin-bottom:.5rem}
+.card p{color:var(--muted)}
+.coverage{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.coverage li{padding:.45rem 1rem;border-radius:999px;background:var(--green);color:var(--cream);font-size:.9rem;font-weight:600}
+
+/* Partners */
+.partner-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.75rem}
+.partner-list li{padding:.45rem 1rem;border:1px solid var(--brown);border-radius:999px;color:var(--brown);font-size:.9rem;font-weight:600}
+
+/* Contact */
+.contact{background:var(--green);color:var(--cream);text-align:center}
+.contact h2{color:var(--cream);margin-inline:auto;max-width:18ch}
+.contact .eyebrow{color:var(--gold)}
+.contact .lead{margin-inline:auto;color:rgba(245,242,231,.8)}
+.contact-grid{display:grid;gap:1rem;margin:2.5rem auto 0;max-width:46rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));text-align:left}
+.contact-item{padding:1.1rem 1.25rem;border:1px solid rgba(245,242,231,.25);border-radius:var(--radius)}
+.contact-item small{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.contact-item a{text-decoration:none;font-weight:600;overflow-wrap:anywhere}
+.contact-item a:hover{text-decoration:underline}
+.contact .btn{margin-top:2rem}
+
+footer{background:#0c231e;color:rgba(245,242,231,.7);padding-block:2rem;font-size:.88rem}
+.foot{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.foot img{height:2.25rem;width:auto}
+
+/* Scroll reveal (progressive enhancement) */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+    @keyframes rise{from{opacity:0;translate:0 1.5rem}to{opacity:1;translate:0 0}}
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <!-- LOGO PLACEHOLDER: replace the src with the path to your logo image -->
+    <a class="site-logo" href="#top" aria-label="iTwende Concierge, home">
+      <img src="images/logo.jpeg" alt="iTwende Concierge" width="160" height="44">
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+        <span aria-hidden="true">&#9776;</span><span>Menu</span>
+      </button>
+      <ul id="site-menu" class="site-menu" popover="auto">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why us</a></li>
+        <li><a href="#process">How we work</a></li>
+        <li><a href="#clients">Who we serve</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Business profile &middot; 2026</p>
+      <h1>A trusted local host on the ground in <em>Zambia</em></h1>
+      <p class="lead">Concierge services for investors and first-time visitors, from the moment they land to a smooth stay or a registered, operating business.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#contact">Start an enquiry</a>
+        <a class="btn btn-ghost" href="#services">See our packages</a>
+      </div>
+      <div class="stats">
+        <div><strong>18+ years</strong><span>Customer experience leadership</span></div>
+        <div><strong>2 tracks</strong><span>Investor and Visitor, 3 packages each</span></div>
+        <div><strong>1 contact</strong><span>A named advisor for every client</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <p class="eyebrow">Who we are</p>
+        <h2>A trusted local host on the ground</h2>
+        <p class="lead">iTwende Concierge is a Lusaka-based concierge and advisory service that helps investors and first-time visitors arrive, settle and succeed anywhere in Zambia.</p>
+      </div>
+      <div class="pillars reveal">
+        <div class="pillar"><h3>One accountable point of contact</h3><p>Every client works with a single named advisor from enquiry to completion.</p></div>
+        <div class="pillar"><h3>Clear service packages</h3><p>Defined packages for investors and visitors, so you know what is included.</p></div>
+        <div class="pillar"><h3>Transparent costs</h3><p>Itemised fees with receipts and a clear service agreement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="eyebrow">What we offer</p>
+      <h2>Two tracks, three packages each</h2>
+      <p class="lead">Investors get support with registration, permits, housing and introductions. Visitors get a smooth, safe trip, from airport reception to custom itineraries.</p>
+
+      <div class="tracks">
+        <article class="track dark reveal">
+          <h3>Investor track</h3>
+          <p class="sub">For foreign investors and expatriate executives</p>
+          <div class="pkg"><h4>Investor Landing</h4><p>Airport reception, transport, accommodation and introductions to advisors and sector contacts.</p></div>
+          <div class="pkg"><h4>Investor Setup</h4><p>Company registration, tax setup, permits, and introductions to lawyers and accountants.</p></div>
+          <div class="pkg"><h4>Your Person in Zambia</h4><p>Ongoing on-the-ground representation and monthly reporting for investors abroad.</p></div>
+        </article>
+
+        <article class="track reveal">
+          <h3>Visitor track</h3>
+          <p class="sub">For first-time visitors, families, groups and the diaspora</p>
+          <div class="pkg"><h4>Welcome to Zambia</h4><p>Airport reception, transport, accommodation, local SIM and money guidance, city orientation.</p></div>
+          <div class="pkg"><h4>Explorer Journey</h4><p>Custom itinerary to Victoria Falls, South Luangwa, Lower Zambezi or Kafue, with bookings and guides.</p></div>
+          <div class="pkg"><h4>Personal Host</h4><p>A dedicated host to accompany you and handle logistics in any town or park.</p></div>
+        </article>
+      </div>
+
+      <p class="addons reveal"><strong>Add-ons:</strong> extra driver days, house-hunting tours, document translation, school search for expat families, airport transfers for companions, restaurant and activity bookings. Packages and pricing available on request.</p>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <p class="eyebrow">Why choose us</p>
+      <h2>18+ years of customer experience leadership</h2>
+      <div class="why-grid">
+        <div class="reveal"><h3>Experience</h3><p>Led by Theresa Mumba, a customer experience and management professional and founder of Zonite Consulting.</p></div>
+        <div class="reveal"><h3>Industry background</h3><ul><li>MTN Zambia</li><li>FNB Zambia</li><li>M-Kopa East Africa</li></ul></div>
+        <div class="reveal"><h3>Qualifications</h3><ul><li>MBA in Management Strategy, University of Zambia</li><li>Forrester Certified Mastering Customer Experience</li><li>Postgraduate Diploma in Educational Leadership and Teaching Methodology, Copperbelt University</li></ul></div>
+        <div class="reveal"><h3>Standing</h3><p>Member of the Zambia Institute of Marketing (ZIM).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <p class="eyebrow">How we work</p>
+      <h2>Six clear steps, so clients always know what is next</h2>
+      <ol class="steps" style="list-style:none;margin:2.5rem 0 0;padding:0">
+        <li class="step reveal"><h3>Enquiry</h3><p>Client contacts us by email, LinkedIn or our client line.</p></li>
+        <li class="step reveal"><h3>Package and deposit</h3><p>Client selects a package and pays a 50% deposit.</p></li>
+        <li class="step reveal"><h3>Plan</h3><p>We issue a document checklist or travel plan.</p></li>
+        <li class="step reveal"><h3>Coordination</h3><p>We arrange drivers, accommodation and guides, plus lawyers, accountants and ZDA meetings for investors.</p></li>
+        <li class="step reveal"><h3>On the ground</h3><p>We receive the client on arrival and manage the programme anywhere in Zambia.</p></li>
+        <li class="step reveal"><h3>Completion</h3><p>Client pays the balance and shares a review.</p></li>
+      </ol>
+      <p class="promise">A named advisor for every client, itemised fees with receipts, and a clear service agreement.<small>We coordinate legal work but do not give legal advice.</small></p>
+    </div>
+  </section>
+
+  <section class="who" id="clients">
+    <div class="wrap">
+      <p class="eyebrow">Who we serve and where</p>
+      <h2>Two client groups, coverage across Zambia</h2>
+      <div class="cards">
+        <div class="card reveal"><h3>Investors</h3><p>Foreign investors and expatriate executives entering mining, agriculture, energy, real estate, retail and logistics.</p></div>
+        <div class="card reveal"><h3>First-time visitors</h3><p>Leisure and business visitors, families, groups and members of the diaspora.</p></div>
+      </div>
+      <ul class="coverage" aria-label="Coverage areas">
+        <li>Lusaka</li><li>Livingstone &amp; Victoria Falls</li><li>The Copperbelt</li><li>South Luangwa</li><li>Lower Zambezi</li><li>Kafue</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="wrap">
+      <p class="eyebrow">Our partner network</p>
+      <h2>Vetted local providers, fair prices</h2>
+      <p class="lead">We are actively building this network and welcome partnership enquiries from providers who share our standards.</p>
+      <ul class="partner-list">
+        <li>Lawyers &amp; accountants</li><li>Hotels, lodges &amp; guesthouses</li><li>Drivers</li><li>Car hire companies</li><li>Safari guides</li><li>Real estate agents</li><li>Tour operators</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Let&rsquo;s work together</p>
+      <h2>Tell us when you are landing</h2>
+      <p class="lead">Reach our founder directly and we will recommend the right package.</p>
+      <div class="contact-grid">
+        <div class="contact-item"><small>Founder</small>Theresa Mumba</div>
+        <div class="contact-item"><small>Phone</small><a href="tel:+260966220051">0966 220 051</a></div>
+        <div class="contact-item"><small>Email</small><a href="mailto:theresamumba@gmail.com">theresamumba@gmail.com</a></div>
+        <div class="contact-item"><small>Base</small>Lusaka, Zambia</div>
+      </div>
+      <a class="btn btn-gold" href="mailto:theresamumba@gmail.com?subject=iTwende%20Concierge%20enquiry">Send an enquiry</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <!-- LOGO PLACEHOLDER (footer): same logo file as the header -->
+    <img src="images/logo.jpeg" alt="iTwende Concierge" width="130" height="36">
+    <p>&copy; <span id="year">2026</span> iTwende Concierge &middot; Lusaka, Zambia</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Responsive nav: inline when the row fits, popover menu when it doesn't.
+  const header = document.querySelector('.site-header');
+  const inner = header.querySelector('.header-inner');
+  const menu = document.getElementById('site-menu');
+  let lastWidth = 0;
+
+  function layout() {
+    const w = header.clientWidth;
+    const isWide = header.classList.contains('is-wide');
+    if (!isWide && w <= lastWidth) { lastWidth = w; return; } // collapsed: remeasure only on growth
+    lastWidth = w;
+    const wasOpen = menu.matches(':popover-open');
+    header.classList.add('is-measuring');
+    header.classList.add('is-wide');
+    menu.removeAttribute('popover');
+    const fits = inner.scrollWidth <= inner.clientWidth;
+    header.classList.toggle('is-wide', fits);
+    if (!fits) {
+      menu.setAttribute('popover', 'auto');
+      if (wasOpen) menu.showPopover();
+    }
+    requestAnimationFrame(() => header.classList.remove('is-measuring'));
+  }
+  const ro = new ResizeObserver(layout);
+  ro.observe(header); ro.observe(menu);
+  layout();
+
+  // Close the popover menu after choosing a link
+  menu.addEventListener('click', e => {
+    if (e.target.closest('a') && menu.matches(':popover-open')) menu.hidePopover();
+  });
+
+  // Highlight the current section in the nav
+  const links = [...menu.querySelectorAll('a[href^="#"]')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(entries => {
+    for (const en of entries) {
+      if (en.isIntersecting) {
+        links.forEach(a => a.removeAttribute('aria-current'));
+        map.get(en.target.id)?.setAttribute('aria-current', 'true');
+      }
+    }
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  map.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+})();
+</script>
+</body>
+</html>
