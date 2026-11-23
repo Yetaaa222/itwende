@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#11302a">
 
 <!-- FAVICON PLACEHOLDER: replace with the path to your favicon image -->
-<link rel="icon" href="favicon.jpeg" type="image/jpeg">
+<link rel="icon" href="favicon.jpg" type="image/jpeg">
 
 <style>
 :root{
@@ -73,16 +73,29 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);color:var(--green);font-weight:800;letter
 .site-header.is-wide .site-menu a.nav-cta{background:var(--gold);color:var(--green)}
 .is-measuring *{transition:none!important}
 
-/* Hero */
-.hero{background:radial-gradient(circle at 85% 20%,rgba(216,166,69,.22),transparent 45%),var(--green);color:var(--cream);padding-block:clamp(4rem,11vw,8rem)}
+/* Hero: one flat brand-green background, text left, transparent PNG mark right */
+.hero{display:grid;background:var(--green);color:var(--cream)}
+.hero-copy{padding:clamp(3rem,8vw,5.5rem) 1.25rem 2rem}
 .hero .eyebrow{color:var(--gold)}
-.hero h1{font-size:clamp(2.2rem,6.5vw,4.2rem);font-weight:800;letter-spacing:-.02em;max-width:16ch}
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.7rem);font-weight:800;letter-spacing:-.02em;color:var(--cream);max-width:15ch}
 .hero h1 em{font-style:normal;color:var(--gold)}
-.hero p.lead{color:rgba(245,242,231,.85);font-size:clamp(1.05rem,2vw,1.25rem)}
+.hero p.lead{font-size:clamp(1.05rem,1.8vw,1.2rem);max-width:34rem;color:rgba(245,242,231,.85)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem;margin-top:3.5rem;border-top:1px solid rgba(245,242,231,.2);padding-top:2rem}
-.stats strong{display:block;font-size:1.6rem;color:var(--gold)}
-.stats span{font-size:.9rem;color:rgba(245,242,231,.75)}
+.hero .btn-solid{background:var(--gold);color:var(--green)}
+.hero .btn-solid:hover{background:#e6b85a}
+.hero .btn-ghost{border-color:rgba(245,242,231,.5);color:var(--cream)}
+.hero .btn-ghost:hover{background:rgba(245,242,231,.1)}
+.hero-banner{display:grid;place-items:center;padding:1rem 1.25rem 3rem}
+.hero-banner img{inline-size:min(100%,26rem);block-size:auto;aspect-ratio:1;object-fit:contain}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1.25rem;margin-top:2.75rem;border-top:1px solid rgba(245,242,231,.2);padding-top:1.5rem}
+.stats strong{display:block;font-size:1.35rem;color:var(--gold)}
+.stats span{font-size:.88rem;color:rgba(245,242,231,.75)}
+@media (min-width:56rem){
+  .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);min-block-size:min(40rem,calc(100svh - 4.5rem))}
+  .hero-copy{padding-block:clamp(3rem,8vw,5.5rem);padding-inline-start:max(1.25rem,calc((100vw - var(--max)) / 2 + 1.25rem));padding-inline-end:clamp(1.5rem,4vw,4rem);align-self:center}
+  .hero-banner{padding:2rem clamp(1.5rem,5vw,5rem)}
+  .hero-banner img{inline-size:min(100%,30rem)}
+}
 
 /* About */
 .about{background:var(--cream)}
@@ -167,7 +180,7 @@ footer{background:#0c231e;color:rgba(245,242,231,.7);padding-block:2rem;font-siz
   <div class="header-inner">
     <!-- LOGO PLACEHOLDER: replace the src with the path to your logo image -->
     <a class="site-logo" href="#top" aria-label="iTwende Concierge, home">
-      <img src="itwende.jpeg" alt="iTwende Concierge" width="160" height="44">
+      <img src="itwende.png" alt="iTwende Concierge" width="160" height="44">
     </a>
 
     <nav class="site-nav" aria-label="Primary">
@@ -188,12 +201,12 @@ footer{background:#0c231e;color:rgba(245,242,231,.7);padding-block:2rem;font-siz
 
 <main>
   <section class="hero">
-    <div class="wrap">
+    <div class="hero-copy">
       <p class="eyebrow">Business profile &middot; 2026</p>
       <h1>A trusted local host on the ground in <em>Zambia</em></h1>
       <p class="lead">Concierge services for investors and first-time visitors, from the moment they land to a smooth stay or a registered, operating business.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#contact">Start an enquiry</a>
+        <a class="btn btn-solid" href="#contact">Start an enquiry</a>
         <a class="btn btn-ghost" href="#services">See our packages</a>
       </div>
       <div class="stats">
@@ -201,6 +214,10 @@ footer{background:#0c231e;color:rgba(245,242,231,.7);padding-block:2rem;font-siz
         <div><strong>2 tracks</strong><span>Investor and Visitor, 3 packages each</span></div>
         <div><strong>1 contact</strong><span>A named advisor for every client</span></div>
       </div>
+    </div>
+    <!-- BANNER PLACEHOLDER: your transparent PNG of the mark. The hero background is flat brand green (#11302a), so it blends in. -->
+    <div class="hero-banner">
+      <img src="favicon.jpg" alt="iTwende Concierge mark: a gold sun above a curved cream figure" width="1024" height="1024" fetchpriority="high" decoding="async">
     </div>
   </section>
 
@@ -320,7 +337,7 @@ footer{background:#0c231e;color:rgba(245,242,231,.7);padding-block:2rem;font-siz
 <footer>
   <div class="wrap foot">
     <!-- LOGO PLACEHOLDER (footer): same logo file as the header -->
-    <img src="images/logo.jpeg" alt="iTwende Concierge" width="130" height="36">
+    <img src="faicon.jpeg" alt="iTwende Concierge" width="130" height="36">
     <p>&copy; <span id="year">2026</span> iTwende Concierge &middot; Lusaka, Zambia</p>
   </div>
 </footer>
